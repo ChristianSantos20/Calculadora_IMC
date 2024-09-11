@@ -14,18 +14,11 @@
 main{
     width: 100%;
     height: 100%;
+    flex: 1;
     display: flex;
     justify-content: space-around;
     background-color: var(--Cor--Principal);
 
-}
-@keyframes Animação_main {
-    from{
-        margin-left: 100%;
-    } 
-    to{
-        margin-left: 0%;
-    }
 }
 .titulo_hr{
     width: 20%;
@@ -33,7 +26,7 @@ main{
     border: solid 1px var(--SegundaCor--);
 }
 .Exercicio_img{
-    width: 100%;
+    width: 130vh;
     height: 100vh;
     animation-duration: 0.7s;
     animation-name: Animação_main;
@@ -49,7 +42,6 @@ main{
     display: flex;
     flex-direction: column;
     padding: 2%;
-
 }
 .IMC_input{
     width: 100%;
@@ -82,7 +74,6 @@ button{
     color: var(--Cor--Principal);
     height: 4vw;
     border-radius: 10px;
-    transition-duration: 0.5s;
 }
 button:hover{
     background-color: var(--TerceiraCor--);
@@ -90,7 +81,16 @@ button:hover{
     height: 5vw;
     transition-duration: 1s;
 }
+button:active{
+    background-color: var(--TerceiraCor--);
+}
 #resultado{
     padding: 10%;
     color: var(--SegundaCor--);
+}
+@media(360px <= width <= 768px){
+    .Exercicio_img{
+        display: none;
+    }
+
 }

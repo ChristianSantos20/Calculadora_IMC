@@ -1,7 +1,5 @@
 let formulario_calculos = document.getElementById("Calculos_div");
 
-
-
 formulario_calculos.addEventListener("submit", function(i){
     i.preventDefault()
     let kg = document.getElementById("Kg_input");

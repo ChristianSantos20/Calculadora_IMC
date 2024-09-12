@@ -1,96 +1,24 @@
-:root{
-    --Cor--Principal: #000000;
-    --SegundaCor--: #fff7f7;
-    --TerceiraCor--: #808080;
-}
-
 *{
-    font-family: "poppins", Arial, Helvetica, sans-serif;
-    margin: 0%;
-    padding: 0%;
-    background-color: var(--Cor--Principal);
-    color: var(--SegundaCor--);
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", Arial, Helvetica, sans-serif;
 }
 main{
-    width: 100%;
-    height: 100%;
-    flex: 1;
     display: flex;
     justify-content: space-around;
-    background-color: var(--Cor--Principal);
-
+    align-items: center;
+    width: 100%;
+    height: 100%;
 }
-.titulo_hr{
-    width: 20%;
-    color: var(--SegundaCor--);
-    border: solid 1px var(--SegundaCor--);
+.exercicio_img_div{
+    width: 100%;
 }
 .Exercicio_img{
-    width: 130vh;
+    width: 70%;
     height: 100vh;
-    animation-duration: 0.7s;
-    animation-name: Animação_main;
 }
-.Calculos_div{
-    padding: 1%;
-    width: 40%;
-    gap: 20%;
-    animation-duration: 0.7s;
-    animation-name: Animação_main;
-}
-.Calculadora_div{
-    display: flex;
-    flex-direction: column;
-    padding: 2%;
-}
-.IMC_input{
-    width: 100%;
-    height: 10vh;
+input{
     outline: none;
-    background-color: var(--SegundaCor--);
-    border-radius: 5px;
-    color: var(--Cor--Principal);
-    font-size: larger;
+    height: 5vh;
 }
-#Kg_input{
-    background-image: url(./imagem/KG.png);
-    background-repeat: no-repeat;
-    background-size: 7%;
-    background-position: left;
-    padding-left: 3.5rem;
-}
-#Altura_input{
-    background-image: url(./imagem/Regua.png);
-    background-repeat: no-repeat;
-    background-size: 7%;
-    background-position: left;
-    padding-left: 3.5rem;
-}
-hr{
-    border: solid 5px var(--SegundaCor--);
-}
-button{
-    background-color: var(--SegundaCor--);
-    color: var(--Cor--Principal);
-    height: 4vw;
-    border-radius: 10px;
-}
-button:hover{
-    background-color: var(--TerceiraCor--);
-    color: var(--SegundaCor--);
-    height: 5vw;
-    transition-duration: 1s;
-}
-button:active{
-    background-color: var(--TerceiraCor--);
-}
-#resultado{
-    padding: 10%;
-    color: var(--SegundaCor--);
-}
-@media(360px <= width <= 768px){
-    .Exercicio_img{
-        display: none;
-    }
 
-}

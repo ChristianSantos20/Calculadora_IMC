@@ -100,6 +100,9 @@ span{
     height: 1px;
     background-color: var(--segunda--cor--);
 }
+#resultado{
+    color: var(--primeira--cor--);
+}
 @media (392px <= width <= 768px) {
     .img_div{
         display: none;

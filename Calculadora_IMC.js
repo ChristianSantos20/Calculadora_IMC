@@ -1,59 +1,55 @@
-//Mascara do KG
-function KG_mask(k){
 
-    let Kg_valor = k.value
+function KG_mask(k) {
+   let Kg_valor = k.value;
+   Kg_valor = Kg_valor.replace(/\D/g, ""); 
 
-    Kg_valor = Kg_valor.replace(/\D/g,"");
+   if (Kg_valor.length > 2) {
+       Kg_valor = Kg_valor.replace(/^(\d{2})(\d{0,3})$/, "$1,$2"); 
+   }
 
-    if(Kg_valor.length === 2){
-       Kg_valor.replace(/^(\d{2})(\d{0,3})/,"$1,$2");
-    }
-    
-    k.value = Kg_valor;
-
+   k.value = Kg_valor;
 }
-//Mascara da altura
-function Altura_Mask(a){
 
-    let Altura_valor = a.value;
-    Altura_valor = Altura_valor.replace(/\D/g,"");
+function Altura_Mask(a) {
+   let Altura_valor = a.value;
+   Altura_valor = Altura_valor.replace(/\D/g, ""); 
 
-    if(Altura_valor.length === 1){
-        Altura_valor.replace(/^(\d{1})(\d{0,3})/,"$1.$2")
-    };
+   if (Altura_valor.length > 1) {
+       Altura_valor = Altura_valor.replace(/^(\d{1})(\d{0,2})$/, "$1.$2"); 
+   }
+
+   a.value = Altura_valor;
+}
+
+
+function Calcular() {
+   let KG = parseFloat(document.getElementById("Kg_input").value.replace(",", "."));
+   let Altura = parseFloat(document.getElementById("Altura_input").value);
+   let resultado = document.getElementById("resultado");
+
    
-    a.value = Altura_valor;
-    
-} 
-//Função para calcular o IMC
-function Calcular(){
+   if (isNaN(KG) || isNaN(Altura)) {
+       resultado.innerHTML = "Valor inválido. Preencha ambos os campos.";
+       return;
+   }
 
-    let KG = Number(document.getElementById("Kg_input").value)
-    let Altura = Number(document.getElementById("Altura_input").value)
-    let resultado = document.getElementById("resultado")
-    
-    if(KG === "" || Altura === ""){
-        alert("Preencha os campos vazios");
-        return;
-    } 
+   const IMC = KG / (Altura * Altura);
 
-    const IMC = KG / (Altura * Altura);
+   let mensagem = "";
 
-        if(IMC < 18){
-           resultado.innerHTML("Abaixo do peso")
-        } else if(IMC > 18 && IMC < 24){
-           resultado.innerHTML("Peso normal")
-        } else if(IMC > 25 && IMC < 29){
-           resultado.innerHTML("Execesso de peso")
-        } else if(IMC > 29 && IMC < 34){
-           resultado.innerHTML("Obesidade classe I")
-        } else if(IMC > 34 && IMC < 39){
-           resultado.innerHTML("Obesidade classe II")
-        } else {
-           resultado.innerHTML("Obesidade classe III")
-        }
+   if (IMC < 18) {
+       mensagem = "Abaixo do peso";
+   } else if (IMC >= 18 && IMC < 25) {
+       mensagem = "Peso normal";
+   } else if (IMC >= 25 && IMC < 30) {
+       mensagem = "Excesso de peso";
+   } else if (IMC >= 30 && IMC < 35) {
+       mensagem = "Obesidade classe I";
+   } else if (IMC >= 35 && IMC < 40) {
+       mensagem = "Obesidade classe II";
+   } else {
+       mensagem = "Obesidade classe III";
+   }
 
-        return resultado;
-        
-
+   resultado.innerHTML = `Seu IMC é ${IMC.toFixed(2)}. ${mensagem}`;
 }

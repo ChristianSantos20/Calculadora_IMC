@@ -21,7 +21,6 @@ function Altura_Mask(a) {
    a.value = Altura_valor;
 }
 
-
 function Calcular() {
    let KG = parseFloat(document.getElementById("Kg_input").value.replace(",", "."));
    let Altura = parseFloat(document.getElementById("Altura_input").value);
@@ -29,7 +28,7 @@ function Calcular() {
 
    
    if (isNaN(KG) || isNaN(Altura)) {
-       resultado.innerHTML = "Valor inválido. Preencha ambos os campos.";
+       resultado.innerHTML = "Valor inválido. Preencha todos os campos.";
        return;
    }
 
